@@ -6,9 +6,15 @@
     <title>Document</title>
 </head>
 <body>
-    <h1> voorbeeld van jouws</h1>
+
+<form method="post" action="menu.php">
+Name: <input type="text" name="invul1" value="Name"><br>
+E-mail: <input type="text" name="invul2" value="Email"><br>
+<input type="submit" name="knop" value="verzenden">
+</form>
+
 <?php
-include "menu.php" ;
+
 ?>
 
 </body>
