@@ -1,9 +1,9 @@
 <?php
   include "connection.php";
   $id="";
-  $name="";
-  $email="";
-  $phone="";
+  $product="";
+  $soort="";
+  $prijs="";
 
   $error="";
   $success="";
@@ -14,25 +14,25 @@
       exit;
     }
     $id = $_GET['id'];
-    $sql = "select * from kroeg where id=$id";
+    $sql = "select * from crud2 where id=$id";
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
     while(!$row){
       header("location: crud100/index.php");
       exit;
     }
-    $name=$row["name"];
-    $email=$row["email"];
-    $phone=$row["phone"];
+    $name=$row["produt"];
+    $email=$row["soort"];
+    $phone=$row["prijs"];
 
   }
   else{
     $id = $_POST["id"];
-    $name=$_POST["name"];
-    $email=$_POST["email"];
-    $phone=$_POST["phone"];
+    $name=$_POST["product"];
+    $email=$_POST["soort"];
+    $phone=$_POST["prijs"];
 
-    $sql = "update kroeg set name='$name', email='$email', phone='$phone' where id='$id'";
+    $sql = "update crud2 set name='$name', email='$email', phone='$phone' where id='$id'";
     $result = $conn->query($sql);
     
   }
@@ -52,7 +52,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" class="fw-bold">
       <div class="container-fluid">
-        <a class="navbar-brand" href="index.php">PHP CRUD OPERATION</a>
+        <a class="navbar-brand" href="index.php">PHP CRUD Biconomy</a>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
@@ -72,18 +72,18 @@
  <br><br><div class="card">
  
  <div class="card-header bg-warning">
- <h1 class="text-white text-center">  Update Member </h1>
+ <h1 class="text-white text-center">  Update Product </h1>
  </div><br>
 
  <input type="hidden" name="id" value="<?php echo $id; ?>" class="form-control"> <br>
 
- <label> NAME: </label>
+ <label> product: </label>
  <input type="text" name="name" value="<?php echo $name; ?>" class="form-control"> <br>
 
- <label> EMAIL: </label>
+ <label> soort: </label>
  <input type="text" name="email" value="<?php echo $email; ?>" class="form-control"> <br>
 
- <label> PHONE: </label>
+ <label> prijs: </label>
  <input type="text" name="phone" value="<?php echo $phone; ?>" class="form-control"> <br>
 
  <button class="btn btn-success" type="submit" name="submit"> Submit </button><br>

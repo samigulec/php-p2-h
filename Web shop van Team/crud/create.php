@@ -1,10 +1,10 @@
 <?php
     include "connection.php";
     if(isset($_POST['submit'])){
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $phone = $_POST['phone'];
-        $q = " INSERT INTO `kroeg`(`name`, `email`, `phone`) VALUES ( '$name', '$email', '$phone' )";
+        $product = $_POST['product'];
+        $soort = $_POST['soort'];
+        $prijs = $_POST['prijs'];
+        $q = " INSERT INTO `crud2`(`product`, `soort`, `prijs`) VALUES ( '$product', '$soort', '$prijs' )";
 
         $query = mysqli_query($conn,$q);
     }
@@ -23,7 +23,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="index.php">PHP CRUD OPERATION</a>
+        <a class="navbar-brand" href="index.php">PHP CRUD Biconomy</a>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
@@ -43,16 +43,16 @@
  <br><br><div class="card">
  
  <div class="card-header bg-primary">
- <h1 class="text-white text-center">  Create New Member </h1>
+ <h1 class="text-white text-center">  Create New Product </h1>
  </div><br>
 
- <label> NAME: </label>
+ <label> Product naam: </label>
  <input type="text" name="name" class="form-control"> <br>
 
- <label> EMAIL: </label>
+ <label> Soort: </label>
  <input type="text" name="email" class="form-control"> <br>
 
- <label> PHONE: </label>
+ <label> Prijs: </label>
  <input type="text" name="phone" class="form-control"> <br>
 
  <button class="btn btn-success" type="submit" name="submit"> Submit </button><br>

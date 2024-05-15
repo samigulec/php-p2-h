@@ -13,7 +13,7 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="index.php">PHP CRUD OPERATION</a>
+        <a class="navbar-brand" href="index.php">PHP CRUD Biconomy</a>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
@@ -30,18 +30,16 @@
     <table class="table">
     <thead>
       <tr>
-        <th>ID</th>
-        <th>NAME</th>
-        <th>EMAIL</th>
-        <th>PHONE</th>
-        <th>JOINING DATE</th>
-        <th>ACTIONS</th>
+        <th>Product</th>
+        <th>Soort</th>
+        <th>Prijs</th>
+        <th>Korting</th>
       </tr>
     </thead>
     <tbody>
       <?php
         include "connection.php";
-        $sql = "select * from kroeg";
+        $sql = "select * from crud2";
         $result = $conn->query($sql);
         if(!$result){
           die("Invalid query!");
@@ -49,11 +47,11 @@
         while($row=$result->fetch_assoc()){
           echo "
       <tr>
-        <th>$row[id]</th>
-        <td>$row[name]</td>
-        <td>$row[email]</td>
-        <td>$row[phone]</td>
-        <td>$row[join_date]</td>
+        <th>$row[Product]</th>
+        <td>$row[Soort]</td>
+        <td>$row[Prijs]</td>
+        <td>$row[Korting]</td>
+        <td>$row[s]</td>
         <td>
                   <a class='btn btn-success' href='edit.php?id=$row[id]'>Edit</a>
                   <a class='btn btn-danger' href='delete.php?id=$row[id]'>Delete</a>
